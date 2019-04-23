@@ -1,0 +1,8 @@
+catoam.py
+setup.py
+catoam.egg-info/PKG-INFO
+catoam.egg-info/SOURCES.txt
+catoam.egg-info/dependency_links.txt
+catoam.egg-info/entry_points.txt
+catoam.egg-info/requires.txt
+catoam.egg-info/top_level.txt
