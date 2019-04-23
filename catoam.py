@@ -12,15 +12,18 @@ import os
 def translate(filename, output_location):
     click.echo("Translating %s" % os.path.abspath(filename))
 
-    # Sets output file location based on whether output_location is None
+    # Loads file's text as string filedata
+    with open(filename, "r") as file:
+            filedata = file.read()
+
+    # Creates the the translator, translates the file, and stores the translation as a string
+    file_translator = translator.Translator()
+    translated_filedata = file_translator.translate(filedata)
+
+    # Sets output file location based on whether output_location is None, and outputs translation
     output_file = output_location if output_location is not None else filename
     click.echo("Translating to %s" % os.path.abspath(output_file))
-
-    # Creates the the translator, gives it the required info (current filename, and output location), and translates the file
-    file_translator = translator.Translator(filename, output_location)
-    file_translator.translate()
-
-    # Writes the translation to the output file
-    file_translator.write_to_file()
+    with open(output_file, "w") as file:
+        file.write(translated_filedata)
 
     click.echo("Translation complete.")
