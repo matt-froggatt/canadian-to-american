@@ -17,8 +17,9 @@ class Translator:
         for key in self.translations:
             regex = re.compile(re.escape(key), re.IGNORECASE)
             for line in self.file:
-                regex.sub(self.translations[key], line)
+                line = regex.sub(self.translations[key], line)
                 print(line, end="")
+            self.file.seek(0)
         print("\n\n")
 
     def display_translations(self):
