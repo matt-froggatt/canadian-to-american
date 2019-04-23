@@ -1,4 +1,17 @@
 {
+    "analogue":"analog",
+    "armour":"armor",
+    "catalogue":"catalog",
+    "centre":"center",
+    "cheque":"check",
     "colour":"color",
-    "cheque":"check"
+    "dialogue":"dialog",
+    "fibre":"fiber",
+    "flavour":"flavor",
+    "honour":"honor",
+    "humour":"humor",
+    "labour":"labor",
+    "lustre":"luster",
+    "metre":"meter",
+    "valour":"valor"
 }
