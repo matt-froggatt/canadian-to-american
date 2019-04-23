@@ -3,25 +3,28 @@ import re
 
 class Translator:
 
-    def __init__(self, file):
-        self.file = file
+    def __init__(self, filename):
+        self.filename = filename
+
+        with open(self.filename, "r") as file:
+            self.filedata = file.read()
+
         with open('translation.json') as f:
             self.translations = json.load(f)
     
     def display(self):
-        for line in self.file:
-            print(line, end='')
-        print("\n")
+        print(self.filedata)
 
     def translate(self):
         for key in self.translations:
             regex = re.compile(re.escape(key), re.IGNORECASE)
-            for line in self.file:
-                line = regex.sub(self.translations[key], line)
-                print(line, end="")
-            self.file.seek(0)
-        print("\n\n")
+            self.filedata = regex.sub(self.translations[key], self.filedata)
 
     def display_translations(self):
         for key in self.translations:
             print(key, self.translations[key])
+
+    def write_to_file(self, output_location):
+        output_file = output_location if output_location is not None else self.filename
+        with open(output_file, "w") as file:
+            file.write(self.filedata)
