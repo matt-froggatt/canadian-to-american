@@ -9,7 +9,7 @@ class Translator:
         with open(self.filename, "r") as file:
             self.filedata = file.read()
 
-        with open('translation.json') as f:
+        with open('translations.json') as f:
             self.translations = json.load(f)
     
     def display(self):
